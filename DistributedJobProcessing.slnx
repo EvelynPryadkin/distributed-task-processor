@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="JobApi/JobApi.csproj" />
+  <Project Path="JobWorker/JobWorker.csproj" />
+  <Project Path="SharedContracts/SharedContracts.csproj" />
+</Solution>

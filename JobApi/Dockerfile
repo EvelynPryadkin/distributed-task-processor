@@ -18,6 +18,7 @@ WORKDIR /app
 ENV ASPNETCORE_HTTP_PORTS=8080 \
     DOTNET_EnableDiagnostics=0
 EXPOSE 8080
+RUN apk upgrade --no-cache
 USER $APP_UID
 COPY --from=build --chown=$APP_UID:$APP_UID /app/publish .
 ENTRYPOINT ["dotnet", "JobApi.dll"]

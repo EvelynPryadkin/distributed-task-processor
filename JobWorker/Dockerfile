@@ -16,6 +16,7 @@ RUN dotnet publish "JobWorker/JobWorker.csproj" \
 FROM mcr.microsoft.com/dotnet/runtime:8.0-alpine AS final
 WORKDIR /app
 ENV DOTNET_EnableDiagnostics=0
+RUN apk upgrade --no-cache
 USER $APP_UID
 COPY --from=build --chown=$APP_UID:$APP_UID /app/publish .
 ENTRYPOINT ["dotnet", "JobWorker.dll"]
